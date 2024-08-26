@@ -9,6 +9,10 @@ import java.util.List;
  * @version Fall 2024
  */
 public class Bill {
+	
+	public static final double TAX_RATE = 0.10;
+	public static final double TIP_RATE = 0.20;
+	
 	private ArrayList<BillItem> items;
 	
 	/** Create a new empty Bill
