@@ -49,5 +49,4 @@ public class Bill {
 	public List<BillItem> getItems() {
 		return new ArrayList<BillItem>(this.items);
 	}
-
 }

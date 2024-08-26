@@ -27,23 +27,35 @@ public class BillView {
 			throw new IllegalArgumentException("bill should not be null");
 		}
 		
-		String text = "ITEMS" + System.lineSeparator();
+		StringBuilder text = new StringBuilder("ITEMS" + System.lineSeparator());
 		List<BillItem> items = bill.getItems();
 		double subTotal = 0.0;
 		
 		for (BillItem item : items) {
-			text += item.getName() + " - " + item.getAmount() + System.lineSeparator();
+			text.append(item.getName())
+	            .append(" - $")
+	            .append(String.format("%.2f", item.getAmount()))
+	            .append(System.lineSeparator());
 			subTotal += item.getAmount();
 		}
 		
-		text += System.lineSeparator();
-		text += "SUBTOTAL - $" + subTotal + System.lineSeparator();
+		text.append(System.lineSeparator())
+	        .append("SUBTOTAL - $")
+	        .append(String.format("%.2f", subTotal))
+	        .append(System.lineSeparator());
+    
 		double tax = subTotal * Bill.TAX_RATE;
 		double tip = subTotal * Bill.TIP_RATE;
-		text += "TAX - $" + tax + System.lineSeparator();
-		text += "TIP - $" + tip + System.lineSeparator();
-		text += "TOTAL - $" + (subTotal + tip + tax);
-		
-		return text;
+    
+		text.append("TAX - $")
+        	.append(String.format("%.2f", tax))
+        	.append(System.lineSeparator())
+        	.append("TIP - $")
+        	.append(String.format("%.2f", tip))
+        	.append(System.lineSeparator())
+        	.append("TOTAL - $")
+        	.append(String.format("%.2f", subTotal + tax + tip));
+    
+    return text.toString();
 	}
 }
