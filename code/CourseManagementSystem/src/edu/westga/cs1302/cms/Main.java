@@ -15,7 +15,7 @@ import javafx.stage.Stage;
  */
 public class Main extends Application {
 
-	private static final String WINDOW_TITLE = "Sample JavaFX Project";
+	private static final String WINDOW_TITLE = "Lab 3";
 	private static final String GUI_RESOURCE = "view/MainWindow.fxml";
 	  
 	/** JavaFX entry point.​

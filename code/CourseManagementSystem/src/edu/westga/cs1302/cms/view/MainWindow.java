@@ -4,8 +4,10 @@ import edu.westga.cs1302.cms.model.Student;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 
 /**
  * Code behind for the MainWindow of the application
@@ -18,6 +20,8 @@ public class MainWindow {
 	private TextField name;
 	@FXML
 	private TextField grade;
+	@FXML
+	private Label studentGradeLabel;
 	@FXML
 	private ListView<Student> students;
 
@@ -52,11 +56,22 @@ public class MainWindow {
 			errorPopup.showAndWait();
 		}
 	}
+	
+    @FXML
+    void onSelectedStudent(MouseEvent event) {
+    	Student selectedStudent = this.students.getSelectionModel().getSelectedItem();
+    	if (selectedStudent != null) {
+    		this.studentGradeLabel.setText(String.valueOf(selectedStudent.getGrade()));
+    	} else {
+    		this.studentGradeLabel.setText("");
+    	}
+    }
 
 	@FXML
 	void initialize() {
 		assert this.name != null : "fx:id=\"name\" was not injected: check your FXML file 'MainWindow.fxml'.";
 		assert this.students != null : "fx:id=\"students\" was not injected: check your FXML file 'MainWindow.fxml'.";
+		assert this.studentGradeLabel != null : "fx:id=\"studentGradeLabel\" was not injected: check your FXML file 'MainWindow.fxml'.";
 
 	}
 
