@@ -23,6 +23,8 @@ public class MainWindow {
 	@FXML
 	private Label studentGradeLabel;
 	@FXML
+	private Label averageGradeLabel;
+	@FXML
 	private ListView<Student> students;
 
 	@FXML
@@ -32,6 +34,7 @@ public class MainWindow {
 			int grade = Integer.parseInt(this.grade.getText());
 			Student student = new Student(studentName, grade);
 			this.students.getItems().add(student);
+			this.updateAverageGrade();
 		} catch (NumberFormatException errorThing) {
 			Alert errorPopup = new Alert(Alert.AlertType.ERROR);
 			errorPopup.setContentText(
@@ -50,6 +53,8 @@ public class MainWindow {
 		Student student = this.students.getSelectionModel().getSelectedItem();
 		if (student != null) {
 			this.students.getItems().remove(student);
+			this.studentGradeLabel.setText("");
+			this.updateAverageGrade();
 		} else {
 			Alert errorPopup = new Alert(Alert.AlertType.ERROR);
 			errorPopup.setContentText("No student selected. Unable to remove.");
@@ -66,13 +71,28 @@ public class MainWindow {
     		this.studentGradeLabel.setText("");
     	}
     }
+    
+    private void updateAverageGrade() {
+    	if (this.students.getItems().isEmpty()) {
+    		this.averageGradeLabel.setText("");
+    		return;
+    	}
+    	
+    	int totalGrades = 0;
+    	for (Student student : this.students.getItems()) {
+    		totalGrades  += student.getGrade();
+    	}
+    	
+    	double average = (double) totalGrades / this.students.getItems().size();
+    	this.averageGradeLabel.setText(String.format("%.2f", average));
+    }
 
 	@FXML
 	void initialize() {
 		assert this.name != null : "fx:id=\"name\" was not injected: check your FXML file 'MainWindow.fxml'.";
 		assert this.students != null : "fx:id=\"students\" was not injected: check your FXML file 'MainWindow.fxml'.";
 		assert this.studentGradeLabel != null : "fx:id=\"studentGradeLabel\" was not injected: check your FXML file 'MainWindow.fxml'.";
-
+		assert this.averageGradeLabel != null : "fx:id=\"averageGradeLabel\" was not injected: check your FXML file 'MainWindow.fxml'.";
 	}
 
 }
