@@ -82,6 +82,30 @@ public class Food {
 		}
 		this.quantity = quantity;
 	}
+	
+	/**
+	 * Increments the quantity of the food item
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 * 
+	 */
+	public void incrementQuantity() {
+		this.quantity++;
+	}
+	
+	/**
+	 * Decrements the quantity of the food item.
+	 * 
+	 * @precondition quantity != 0
+	 * @postcondition none
+	 */
+	public void decrementQuantity() {
+		if (this.quantity == 0) {
+			throw new IllegalArgumentException("Can't decrement, quantity is already zero");
+		}
+		this.quantity--;
+	}
 
 	@Override
 	public String toString() {
