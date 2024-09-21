@@ -27,6 +27,9 @@ public class MainWindow {
     @FXML
     private ListView<Food> pantryListView;
     
+    @FXML
+    private TextField quantityField;
+    
     private ObservableList<Food> pantryItems;
     
     @FXML
@@ -71,6 +74,21 @@ public class MainWindow {
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
+    }
+    
+    @FXML
+    void decrementQuantity(ActionEvent event) {
+
+    }
+
+    @FXML
+    void incrementQuantity(ActionEvent event) {
+
+    }
+
+    @FXML
+    void setQuantity(ActionEvent event) {
+
     }
 
 }
