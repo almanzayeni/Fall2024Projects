@@ -8,13 +8,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?xml-model href="MainWindow.fxml"?>
 
-<AnchorPane minHeight="405.0" minWidth="249.0" onDragDetected="#addFood" prefHeight="405.0" prefWidth="249.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.westga.cs1302.foodpantry.view.MainWindow">
+<AnchorPane minHeight="405.0" minWidth="249.0" prefHeight="405.0" prefWidth="249.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.westga.cs1302.foodpantry.view.MainWindow">
    <children>
       <Label layoutX="68.0" layoutY="14.0" text="Enter New Food Name:" />
       <TextField fx:id="foodNameField" layoutX="55.0" layoutY="32.0" />
       <Label layoutX="82.0" layoutY="74.0" text="Select Food Type:" />
       <ComboBox fx:id="foodTypeComboBox" layoutX="55.0" layoutY="91.0" prefWidth="150.0" />
-      <Button layoutX="141.0" layoutY="131.0" mnemonicParsing="false" text="Add Food" />
+      <Button layoutX="141.0" layoutY="131.0" mnemonicParsing="false" onAction="#addFood" text="Add Food" />
       <ListView fx:id="pantryListView" layoutX="22.0" layoutY="183.0" prefHeight="200.0" prefWidth="200.0" />
    </children>
 </AnchorPane>
