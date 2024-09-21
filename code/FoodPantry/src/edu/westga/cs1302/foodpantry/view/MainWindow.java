@@ -1,4 +1,4 @@
-package edu.westga.cs1302.javafx_sample.view;
+package edu.westga.cs1302.foodpantry.view;
 
 /** Codebehind for the Main Window of the application.
  * 

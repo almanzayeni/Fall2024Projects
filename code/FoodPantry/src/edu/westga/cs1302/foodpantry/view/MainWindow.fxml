@@ -8,7 +8,8 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="458.0" minWidth="600.0" prefHeight="642.0" prefWidth="651.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.westga.cs1302.javafx_sample.view.MainWindow">
+<?xml-model href="MainWindow.fxml"?>
+<AnchorPane minHeight="458.0" minWidth="600.0" prefHeight="642.0" prefWidth="651.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.westga.cs1302.foodpantry.view.MainWindow">
    <children>
 
    </children>
