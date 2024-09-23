@@ -126,6 +126,11 @@ public class MainWindow {
         this.quantityField.setText(String.valueOf(selectedFood.getQuantity()));
         this.pantryListView.refresh();
     }
+    
+    @FXML
+    void removeFood(ActionEvent event) {
+
+    }
 
 }
 
