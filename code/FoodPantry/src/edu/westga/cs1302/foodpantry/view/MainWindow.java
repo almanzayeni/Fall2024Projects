@@ -104,7 +104,7 @@ public class MainWindow {
     void incrementQuantity(ActionEvent event) {
     	Food selectedFood = this.pantryListView.getSelectionModel().getSelectedItem();
     	if (selectedFood == null) {
-    		this.showAlert("No Selection", "Please select a food item to set it's quantity");
+    		this.showAlert("No Selection", "Please select a food item to increase it's quantity");
     		return;
     	}
     	selectedFood.setQuantity(selectedFood.getQuantity() + 1);
@@ -116,7 +116,7 @@ public class MainWindow {
     void decrementQuantity(ActionEvent event) {
     	Food selectedFood = this.pantryListView.getSelectionModel().getSelectedItem();
     	if (selectedFood == null) {
-    		this.showAlert("No Selection", "Please select a food item to set it's quantity");
+    		this.showAlert("No Selection", "Please select a food item to decrease it's quantity");
     		return;
     	}
     	if (selectedFood.getQuantity() == 0) {
@@ -129,7 +129,17 @@ public class MainWindow {
     
     @FXML
     void removeFood(ActionEvent event) {
-
+    	Food selectedFood = this.pantryListView.getSelectionModel().getSelectedItem();
+    	if (selectedFood == null) {
+    		this.showAlert("No Selection", "Please select a food item to remove");
+    		return;
+    	}
+    	
+    	this.pantryItems.remove(selectedFood);
+    	this.foodNameField.clear();
+    	this.foodTypeComboBox.setValue(null);
+    	this.quantityField.clear();
+    	this.pantryListView.refresh();
     }
 
 }
