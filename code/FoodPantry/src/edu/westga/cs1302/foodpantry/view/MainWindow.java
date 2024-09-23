@@ -1,6 +1,7 @@
 package edu.westga.cs1302.foodpantry.view;
 
 import edu.westga.cs1302.foodpantry.model.Food;
+import edu.westga.cs1302.foodpantry.utility.FoodUtility;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -144,7 +145,16 @@ public class MainWindow {
     
     @FXML
     void countItems(ActionEvent event) {
+        Food[] foodArray = new Food[this.pantryItems.size()];
+        this.pantryItems.toArray(foodArray);
 
+        int totalQuantity = FoodUtility.getTotalItems(foodArray);
+        
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Total Quantity");
+        alert.setHeaderText(null);
+        alert.setContentText("The total quantity of all food items is: " + totalQuantity);
+        alert.showAndWait();
     }
 
 }
