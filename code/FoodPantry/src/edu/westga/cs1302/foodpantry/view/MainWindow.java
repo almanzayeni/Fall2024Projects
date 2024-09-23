@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
@@ -22,7 +23,10 @@ public class MainWindow {
     private TextField foodNameField;
 
     @FXML
-    private ComboBox<String> foodTypeComboBox;
+    private ComboBox<String> foodTypeComboBox;   
+
+    @FXML
+    private Label countLabel;
 
     @FXML
     private ListView<Food> pantryListView;
@@ -140,6 +144,11 @@ public class MainWindow {
     	this.foodTypeComboBox.setValue(null);
     	this.quantityField.clear();
     	this.pantryListView.refresh();
+    }
+    
+    @FXML
+    void countItems(ActionEvent event) {
+
     }
 
 }
