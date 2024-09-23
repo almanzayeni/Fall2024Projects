@@ -77,18 +77,54 @@ public class MainWindow {
     }
     
     @FXML
-    void decrementQuantity(ActionEvent event) {
-
+    void setQuantity(ActionEvent event) {
+    	Food selectedFood = this.pantryListView.getSelectionModel().getSelectedItem();
+    	if (selectedFood == null) {
+    		this.showAlert("No Selection", "Please select a food item to set it's quantity");
+    		return;
+    	}
+    	String quantityText = this.quantityField.getText();
+    	int quantity = 0;
+    	try {
+    		quantity = Integer.parseInt(quantityText);
+    		if (quantity < 0) {
+    			throw new NumberFormatException();
+    		}
+    		
+    	} catch (NumberFormatException ne) {
+    		this.showAlert("Invalid input" + quantityText, " Please enter a non-negative number");
+    	}
+    	selectedFood.setQuantity(quantity);
+    	this.quantityField.setText(String.valueOf(selectedFood.getQuantity()));
+    	this.pantryListView.refresh();
+    	this.quantityField.clear();
     }
-
+    
     @FXML
     void incrementQuantity(ActionEvent event) {
-
+    	Food selectedFood = this.pantryListView.getSelectionModel().getSelectedItem();
+    	if (selectedFood == null) {
+    		this.showAlert("No Selection", "Please select a food item to set it's quantity");
+    		return;
+    	}
+    	selectedFood.setQuantity(selectedFood.getQuantity() + 1);
+    	this.quantityField.setText(String.valueOf(selectedFood.getQuantity()));
+    	this.pantryListView.refresh();
     }
-
+    
     @FXML
-    void setQuantity(ActionEvent event) {
-
+    void decrementQuantity(ActionEvent event) {
+    	Food selectedFood = this.pantryListView.getSelectionModel().getSelectedItem();
+    	if (selectedFood == null) {
+    		this.showAlert("No Selection", "Please select a food item to set it's quantity");
+    		return;
+    	}
+    	if (selectedFood.getQuantity() == 0) {
+    		this.showAlert("Invalid Action", "Quantity is already 0. Cannot decrement farther.");
+    	}
+    	selectedFood.decrementQuantity();
+        this.quantityField.setText(String.valueOf(selectedFood.getQuantity()));
+        this.pantryListView.refresh();
     }
 
 }
