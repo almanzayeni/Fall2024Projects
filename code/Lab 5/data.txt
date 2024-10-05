@@ -1,0 +1,9 @@
+Server: Trudy
+ITEMS
+Burger,10.00
+Fries,5.50
+
+SUBTOTAL: 15.50
+TAX: 1.55
+TIP: 3.10
+TOTAL: 20.15
