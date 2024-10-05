@@ -1,0 +1,128 @@
+commit 6ace37c35492e6035fffeb0aa0056df3113c67dd
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Mon Sep 23 15:09:25 2024 -0400
+
+    Github Repo Link
+    
+    Added a file with a link to my github repo.
+
+commit 6e4df879bf1b988b12e81d9ddbe6ae966053e8e8
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Mon Sep 23 15:02:15 2024 -0400
+
+    4C-Connect BL to UI for Updating Quantity
+    
+    Implemented the method in the codebehind class to diplay a
+    pop-up information window to show the user the sum of all
+    items that are currently in the pantry.
+
+commit 6254ebd5d863edfd1b1ae84195a63cbbbcc69bf1
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Mon Sep 23 14:50:22 2024 -0400
+
+    4B-Business Logic for Counting Pantry
+    
+    Removed an fxml label. Added a utility class to get the toa;
+    amount of items in the pantry. Added unit tests for the method.
+
+commit 56e56801d11b44aeec0caa74861068fb415aa3b0
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Mon Sep 23 14:21:32 2024 -0400
+
+    4A-Implementing UI for Counting Pantry
+    
+    Added a button to count items in a pantry and added a label to
+    display the amount of items in the pantry. Also, added a handler
+    method for counting the items.
+
+commit d123282caf750dcdc9026165f6c8adc3c659705e
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Sun Sep 22 23:17:07 2024 -0400
+
+    3B-Implementing UI for Removing Food
+    
+    Implemented the method to remove the selected item from the list.
+
+commit 73e0a58e6dfbae68df58bb18a112920e576633b0
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Sun Sep 22 22:34:40 2024 -0400
+
+    3A-UI for removing food
+    
+    Updated fxml file to inlcude a button for removing food.
+    Added a handler method for the new control button.
+
+commit 458d9591e5b5a06933886131413e10cd67b57b5c
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Sun Sep 22 22:22:04 2024 -0400
+
+    2C-Connect Logic and UI for Updating Food Quantity
+    
+    Updated the methods in codebheind to set the quantity, increment,
+    and decrment the quantity. Added a few alert to the methods and only
+     allow numbers to be set.
+
+commit b195abf779136d0ad67b0189629a1f4d82fb39d9
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Sat Sep 21 17:20:34 2024 -0400
+
+    2B-Business Logic for Quantity of Food in Pantry
+    
+    Updated the food class to set, increment, and decrement the quantity
+    of the food item and added unit test cases for the methods.
+
+commit 91a769a07c7f3ac1e4a97d5556d02f0ed8cfd85d
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Sat Sep 21 14:26:49 2024 -0400
+
+    2A-Implementing UI
+    
+    Updated fxml to include new control to set the quantity of the food item
+    that will be added to the pantry. Also, updated the codebehind class to
+    include the new fxml fields and methods.
+
+commit 729eed8c8d769edf39e75067dcac9ec84efd45d9
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Sat Sep 21 11:35:38 2024 -0400
+
+    1C-Connect UI to Business Logic for Adding Food
+    
+    Implemented the method to add a food item to the listview. Also, had
+    the comboBox have options for the food item that would be added and
+    added and alerts for user to input the name and choose the type.
+
+commit 0e32293c6804eda230f99f685df22a67fe478e77
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Sat Sep 21 10:33:44 2024 -0400
+
+    1B-Buisiness Logig for Storing Food
+    
+    Added a Food data class to store a name, a type, and the quantity for a
+    food item. Added getters, toString method, and allow quantity
+    to have a new value when adding a food item.
+
+commit 4ca4580d5a8145d0bb17a44aa862cda1ef15f16c
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Sat Sep 21 08:36:52 2024 -0400
+
+    1A-UI for Adding Food
+    
+    Updated the fxml file to include controls for entering a new food,
+    choosing the type of new food, adding the new food, and selecting it from
+    a list. Also, updated codebehind class to incude the fxml fields.
+
+commit 17a60859ae66b7fc968b2089fb3eea7d3f0d30e7
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Sat Sep 21 00:32:52 2024 -0400
+
+     Prepare for Project
+    
+    Rename packages from previous project to be used for Project 1.
+
+commit 149b4159da2d40b061b1f787485894c0bbe26e1c
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Sat Sep 21 00:19:28 2024 -0400
+
+    Create repository
+    
+    Initialized a repository for Project 1.
