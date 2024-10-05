@@ -1,5 +1,7 @@
 package edu.westga.cs1302.bill.model;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -60,9 +62,46 @@ public class BillPersistenceManager {
 	 * @postcondition none
 	 * 
 	 * @return the bill loaded
+	 * @throws IOException when format is incorrect
 	 */
-	public static Bill loadBillData() {
-		return null;
-	}
+	public static Bill loadBillData() throws IOException {
+        Bill bill = new Bill();
+        
+        try (BufferedReader reader = new BufferedReader(new FileReader(DATA_FILE))) {
+            String serverNameLine = reader.readLine();
+            if (serverNameLine == null || !serverNameLine.startsWith("SERVER: ")) {
+                throw new IOException("Invalid server name line.");
+            }
+            String serverName = serverNameLine.substring(8).trim();
+            bill.setServerName(serverName);
+            
+            String itemsLine = reader.readLine();
+            if (itemsLine == null || !itemsLine.equals("ITEMS")) {
+                throw new IOException("Invalid items line.");
+            }
 
+            String itemLine;
+            while ((itemLine = reader.readLine()) != null) {
+                String[] parts = itemLine.split(",");
+                if (parts.length != 2) {
+                    throw new IOException("Invalid item format: " + itemLine);
+                }
+                String itemName = parts[0].trim();
+                double itemAmount;
+                try {
+                    itemAmount = Double.parseDouble(parts[1].trim());
+                } catch (NumberFormatException numError) {
+                    throw new IOException("Invalid item amount: " + parts[1]);
+                }
+                BillItem item = new BillItem(itemName, itemAmount);
+                bill.addItem(item);
+            }
+        }
+
+        if (bill.getSize() == 0) {
+            throw new IOException("No items found in the bill.");
+        }
+
+        return bill;
+    }
 }
