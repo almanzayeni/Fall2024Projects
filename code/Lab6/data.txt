@@ -1,0 +1,4 @@
+Alice
+Burger,5.46
+Fries,2.38
+Water,1.0
