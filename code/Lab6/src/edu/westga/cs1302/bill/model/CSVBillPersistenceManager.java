@@ -12,7 +12,7 @@ import java.util.Scanner;
  */
 public class CSVBillPersistenceManager extends BillPersistenceManager {
 	
-	public static final String DATA_FILE = "data.txt";
+	public static final String DATA_FILE = "data.csv";
 	
 	/** Save the bill!
 	 * 

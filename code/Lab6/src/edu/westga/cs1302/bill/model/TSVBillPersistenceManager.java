@@ -12,7 +12,7 @@ import java.util.Scanner;
  */
 public class TSVBillPersistenceManager extends BillPersistenceManager {
 	
-	public static final String DATA_FILE = "data.txt";
+	public static final String DATA_FILE = "data.tsv";
 	
 	/** Save the bill!
 	 * 
