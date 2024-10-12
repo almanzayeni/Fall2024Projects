@@ -3,7 +3,6 @@ package edu.westga.cs1302.bill.view;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.List;
 
 import edu.westga.cs1302.bill.model.Bill;
 import edu.westga.cs1302.bill.model.BillItem;
