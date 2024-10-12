@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 commit 6ace37c35492e6035fffeb0aa0056df3113c67dd
 Author: Yeni Almanza <ya00013@my.westga.edu>
 Date:   Mon Sep 23 15:09:25 2024 -0400
@@ -126,3 +127,74 @@ Date:   Sat Sep 21 00:19:28 2024 -0400
     Create repository
     
     Initialized a repository for Project 1.
+=======
+commit 1a45b3cf67335bccef740cddec1e245d2e020814
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Sat Oct 12 11:16:12 2024 -0400
+
+    Github repo link
+    
+    Added a link to my github repo.
+
+commit 011ceef3d45e13dc152d3b9a7bad8e8eee49a126
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Sat Oct 12 11:12:15 2024 -0400
+
+    Unused import
+    
+    Had to remove an unused import to checkout to master.
+
+commit 134568433f485ec9e3f583cc08a09f75d96ab274
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Sat Oct 12 11:10:50 2024 -0400
+
+    Support Sorting Bill Items by Cost
+    
+    Added a comboBox for sorting the list of items. Made two comparators
+    one for ascending and one for descending. Updated mainwindow with the
+    new components and implmented the method for ordering.
+
+commit 2e3a0ca85ded91ccc147c4972d5e7405f6a378fd
+Merge: 9c52bcd a3719eb
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Fri Oct 11 17:45:36 2024 -0400
+
+    Merge branch 'featureSupportMultipleFormats'
+    
+    Merge to master and delte feature branch.
+
+commit 9c52bcd2f0be79535b5b11d4027b977f8bcaa811
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Fri Oct 11 17:45:10 2024 -0400
+
+    Save changes to merge
+    
+    No chnages were made but commit is needed to merge.
+
+commit a3719eb7097b7c11dc427583aac29410f5ac8af0
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Fri Oct 11 17:39:05 2024 -0400
+
+    Small modification
+    
+    Modified CSV and TSV files a little bit.
+
+commit dbcac6216b5875c65a3fd016157033c94467215b
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Fri Oct 11 17:34:40 2024 -0400
+
+    Support Multiple Formats
+    
+    Added a comboBox to select the format in which the bill would
+    be saved. Made the manager class an abstract class and made a
+    CSV and TSV class to save the bill in either of those formats.
+    Implemented the combobox to populate both CSV and TSV files.
+
+commit 760deaf1f7b214d3f60423a3efb6ab3c2c84aa32
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Thu Oct 10 15:38:39 2024 -0400
+
+    Create Lab 6 repo
+    
+    Created a repo to begin lab 6 tasks.
+>>>>>>> master
