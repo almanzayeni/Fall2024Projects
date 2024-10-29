@@ -16,6 +16,7 @@ import javafx.scene.control.TextField;
  */
 public class MainWindow {
 	@FXML private ComboBox<String> ingredientType;
+    @FXML private ComboBox<?> sortCriteria;
 	@FXML private ListView<Ingredient> ingredientsList;
 	@FXML private TextField ingredientName;
 
