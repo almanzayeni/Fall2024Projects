@@ -30,7 +30,7 @@
       <Button fx:id="addRecipeToBook" layoutX="529.0" layoutY="392.0" mnemonicParsing="false" onAction="#addRecipe" text="Add Recipe" />
       <Button fx:id="addIngredients" layoutX="584.0" layoutY="6.0" mnemonicParsing="false" onAction="#addSelectedIngredeints" text="Add Ingredient" />
       <Line endX="-100.0" endY="51.33332061767578" layoutX="338.0" layoutY="18.0" startX="-100.0" />
-      <TextArea layoutX="368.0" layoutY="471.0" prefHeight="200.0" prefWidth="321.0" />
+      <TextArea fx:id="recipeList" layoutX="368.0" layoutY="471.0" prefHeight="200.0" prefWidth="321.0" />
       <Button layoutX="597.0" layoutY="438.0" mnemonicParsing="false" onAction="#displayRecipies" text="Show Recipies" />
       <Label layoutX="368.0" layoutY="455.0" text="Recipe(s) List" />
    </children>
