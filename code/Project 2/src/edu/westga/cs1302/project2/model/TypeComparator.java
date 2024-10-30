@@ -14,4 +14,9 @@ public class TypeComparator implements Comparator<Ingredient> {
 	public int compare(Ingredient ingredient1, Ingredient ingredient2) {
 		return ingredient1.getType().compareTo(ingredient2.getType());
 	}
+	
+	@Override
+	public String toString() {
+		return "Type";
+	}
 }
