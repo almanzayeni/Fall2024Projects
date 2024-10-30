@@ -1,0 +1,4 @@
+Wagyu
+Wagyu-Meat, Salt-Spice, Pepper-Spice, Potatoes-Vegetable, Carrot-Vegetable
+Veggie Bread
+Carrot-Vegetable, Potatoes-Vegetable, Pepper-Spice, Salt-Spice, Wheat-Bread

@@ -1,9 +1,14 @@
 package edu.westga.cs1302.project2.view;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.List;
 
 import edu.westga.cs1302.project2.model.Ingredient;
 import edu.westga.cs1302.project2.model.NameComparator;
+import edu.westga.cs1302.project2.model.Recipe;
+import edu.westga.cs1302.project2.model.RecipeFileWriter;
 import edu.westga.cs1302.project2.model.TypeComparator;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -28,10 +33,11 @@ public class MainWindow {
 	@FXML private TextField ingredientName;
     @FXML private Button addIngredients;
     @FXML private Button addRecipeToBook;
-    @FXML private ListView<?> recipeIngredientsList;
+    @FXML private ListView<Ingredient> recipeIngredientsList;
     @FXML private TextField recipeName;
 	
 	private ObservableList<Ingredient> ingredients;
+	private ObservableList<Ingredient> recipeIngredients;
 
 	@FXML
 	void addIngredient(ActionEvent event) {
@@ -60,34 +66,83 @@ public class MainWindow {
 	
     @FXML
     void addRecipe(ActionEvent event) {
+        String recipeNameText = this.recipeName.getText();
+        if (recipeNameText == null || recipeNameText.isBlank()) {
+            this.showAlert("Invalid Recipe Name", "Please enter a valid recipe name.");
+            return;
+        }
 
+        if (this.recipeIngredients.isEmpty()) {
+            this.showAlert("No Ingredients", "Please add at least one ingredient to the recipe.");
+            return;
+        }
+        List<String> ingredientNames = new ArrayList<>();
+        for (Ingredient ingredient : this.recipeIngredients) {
+            ingredientNames.add(ingredient.toString());
+        }
+
+        try {
+            Recipe newRecipe = new Recipe(recipeNameText, ingredientNames);
+            RecipeFileWriter fileWriter = new RecipeFileWriter("recipes.txt");
+            fileWriter.writeRecipe(newRecipe);
+
+            this.showAlert("Recipe Saved", "Recipe saved successfully!");
+            this.recipeName.clear();
+            this.recipeIngredients.clear();
+        } catch (IOException | IllegalStateException error) {
+            this.showAlert("Error Saving Recipe", error.getMessage());
+        }
     }
 
     @FXML
     void addSelectedIngredeints(ActionEvent event) {
+        Ingredient selectedIngredient = this.ingredientsList.getSelectionModel().getSelectedItem();
+        
+        if (selectedIngredient == null) {
+            this.showAlert("No Ingredient Selected", "Please select an ingredient to add to the recipe.");
+            return;
+        }
 
+        if (!this.recipeIngredients.contains(selectedIngredient)) {
+            this.recipeIngredients.add(selectedIngredient);
+        } else {
+            this.showAlert("Duplicate Ingredient", "This ingredient is already added to the recipe.");
+        }
     }
     
 	@FXML
 	void initialize() {
-		this.ingredientType.getItems().add("Vegetable");
-		this.ingredientType.getItems().add("Meat");
-		this.ingredientType.getItems().add("Bread");
-		this.ingredientType.getItems().add("Fruit");
-		this.ingredientType.getItems().add("Spice");
-		
-		this.ingredients = FXCollections.observableArrayList();
-		this.ingredientsList.setItems(this.ingredients);
-		
-		this.sortCriteria.getItems().add(new TypeComparator());
-		this.sortCriteria.getItems().add(new NameComparator());
-		
-		this.sortCriteria.getSelectionModel().selectFirst();
-		this.sortCriteria.setOnAction(event -> this.sortIngredients());
-		
-		this.sortIngredients();
+	    this.ingredientType.getItems().addAll("Vegetable", "Meat", "Bread", "Fruit", "Spice");
+
+	    this.ingredients = FXCollections.observableArrayList();
+	    this.recipeIngredients = FXCollections.observableArrayList();
+
+	    this.ingredientsList.setItems(this.ingredients);
+	    this.recipeIngredientsList.setItems(this.recipeIngredients);
+
+	    this.sortCriteria.getItems().add(new TypeComparator());
+	    this.sortCriteria.getItems().add(new NameComparator());
+
+	    this.sortCriteria.getSelectionModel().selectFirst();
+	    this.sortCriteria.setOnAction(event -> this.sortIngredients());
+
+	    this.sortIngredients();
 
 	}
+	
+    /**
+     * Helper method to show alert messages.
+     * 
+     * @param title the title of the alert
+     * @param message the message content
+     */
+    private void showAlert(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
 	
     /**
      * Sorts the list of ingredients using the currently selected sort criterion.

@@ -27,7 +27,7 @@
       <Label layoutX="368.0" layoutY="19.0" text="Recipe Ingredients" />
       <ListView fx:id="recipeIngredientsList" layoutX="368.0" layoutY="39.0" prefHeight="436.0" prefWidth="321.0" />
       <Button fx:id="addRecipeToBook" layoutX="529.0" layoutY="502.0" mnemonicParsing="false" onAction="#addRecipe" text="Add Recipe" />
-      <Button fx:id="addIngredients" layoutX="584.0" layoutY="6.0" mnemonicParsing="false" onAction="#addSelectedIngredeints" text="Add Ingredients" />
+      <Button fx:id="addIngredients" layoutX="584.0" layoutY="6.0" mnemonicParsing="false" onAction="#addSelectedIngredeints" text="Add Ingredient" />
       <Line endX="-100.0" endY="51.33332061767578" layoutX="338.0" layoutY="18.0" startX="-100.0" />
    </children>
 </AnchorPane>
