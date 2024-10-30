@@ -4,30 +4,34 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
 
-<AnchorPane minHeight="458.0" minWidth="600.0" prefHeight="642.0" prefWidth="704.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.westga.cs1302.project2.view.MainWindow">
+<AnchorPane minHeight="458.0" minWidth="600.0" prefHeight="685.0" prefWidth="704.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.westga.cs1302.project2.view.MainWindow">
    <children>
       <Button layoutX="205.0" layoutY="16.0" mnemonicParsing="false" onAction="#addIngredient" text="+" />
       <ComboBox fx:id="ingredientType" layoutX="119.0" layoutY="41.0" prefHeight="25.0" prefWidth="81.0" />
       <Label layoutX="146.0" layoutY="20.0" text="Type" />
       <Label layoutX="47.0" layoutY="20.0" text="Name" />
       <Button layoutX="205.0" layoutY="47.0" mnemonicParsing="false" onAction="#removeIngredient" prefHeight="25.0" prefWidth="25.0" text="-" />
-      <ListView fx:id="ingredientsList" layoutX="14.0" layoutY="100.0" prefHeight="527.0" prefWidth="328.0" />
+      <ListView fx:id="ingredientsList" layoutX="14.0" layoutY="100.0" prefHeight="573.0" prefWidth="328.0" />
       <TextField fx:id="ingredientName" layoutX="14.0" layoutY="41.0" prefHeight="25.0" prefWidth="98.0" />
-      <Line endX="-176.0" endY="428.0" layoutX="534.0" layoutY="202.0" startX="-176.0" startY="-191.0" />
+      <Line endX="-176.0" endY="472.66668701171875" layoutX="534.0" layoutY="202.0" startX="-176.0" startY="-191.0" />
       <Label layoutX="149.0" layoutY="78.0" text="Ingredients" />
       <Line endX="-412.0" endY="-133.0" layoutX="427.0" layoutY="212.0" startX="-85.0" startY="-133.0" />
       <Label layoutX="251.0" layoutY="23.0" text="Sort by" />
       <ComboBox fx:id="sortCriteria" layoutX="251.0" layoutY="43.0" prefHeight="25.0" prefWidth="91.0" />
-      <Label layoutX="368.0" layoutY="482.0" text="Recipe Name" />
-      <TextField fx:id="recipeName" layoutX="368.0" layoutY="502.0" />
+      <Label layoutX="368.0" layoutY="372.0" text="Recipe Name" />
+      <TextField fx:id="recipeName" layoutX="368.0" layoutY="392.0" />
       <Label layoutX="368.0" layoutY="19.0" text="Recipe Ingredients" />
-      <ListView fx:id="recipeIngredientsList" layoutX="368.0" layoutY="39.0" prefHeight="436.0" prefWidth="321.0" />
-      <Button fx:id="addRecipeToBook" layoutX="529.0" layoutY="502.0" mnemonicParsing="false" onAction="#addRecipe" text="Add Recipe" />
+      <ListView fx:id="recipeIngredientsList" layoutX="368.0" layoutY="39.0" prefHeight="330.0" prefWidth="321.0" />
+      <Button fx:id="addRecipeToBook" layoutX="529.0" layoutY="392.0" mnemonicParsing="false" onAction="#addRecipe" text="Add Recipe" />
       <Button fx:id="addIngredients" layoutX="584.0" layoutY="6.0" mnemonicParsing="false" onAction="#addSelectedIngredeints" text="Add Ingredient" />
       <Line endX="-100.0" endY="51.33332061767578" layoutX="338.0" layoutY="18.0" startX="-100.0" />
+      <TextArea fx:id="recipeList" layoutX="368.0" layoutY="471.0" prefHeight="200.0" prefWidth="321.0" />
+      <Button layoutX="597.0" layoutY="438.0" mnemonicParsing="false" onAction="#displayRecipies" text="Show Recipies" />
+      <Label layoutX="368.0" layoutY="455.0" text="Recipe(s) List" />
    </children>
 </AnchorPane>
