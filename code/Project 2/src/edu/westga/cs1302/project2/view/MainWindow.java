@@ -10,6 +10,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
@@ -25,6 +26,10 @@ public class MainWindow {
     @FXML private ComboBox<Comparator<Ingredient>> sortCriteria;
 	@FXML private ListView<Ingredient> ingredientsList;
 	@FXML private TextField ingredientName;
+    @FXML private Button addIngredients;
+    @FXML private Button addRecipeToBook;
+    @FXML private ListView<?> recipeIngredientsList;
+    @FXML private TextField recipeName;
 	
 	private ObservableList<Ingredient> ingredients;
 
@@ -52,7 +57,17 @@ public class MainWindow {
 			this.sortIngredients();
 		}
 	}
+	
+    @FXML
+    void addRecipe(ActionEvent event) {
 
+    }
+
+    @FXML
+    void addSelectedIngredeints(ActionEvent event) {
+
+    }
+    
 	@FXML
 	void initialize() {
 		this.ingredientType.getItems().add("Vegetable");
