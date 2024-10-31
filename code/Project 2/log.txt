@@ -1,0 +1,130 @@
+commit 3d285cadceac788a36a98e413bb0d9ac5cb8ba74
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Wed Oct 30 23:14:45 2024 -0400
+
+    3C Connect UI to BL read/load recipies
+    
+    Implemented Mainwindow to show recipes from my file that have
+    the selected ingredient. Also, converted the file into the string
+    in th text area. Checked if the data loaded and when a new
+    ingredient was selected the list would load the reciies and remove
+    the ones that don't include the ingredient.
+
+commit 8d431bb80bb4c136bc890279d8d71dc5ee80a505
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Wed Oct 30 17:12:55 2024 -0400
+
+    3B Update BL to Load Recepies
+    
+    Added a method to the uitlity class to convert the list of recepies
+    from the loaded file. Implemented a class to load the list of
+    recipies from a loaded file and addeda empty line then returned an
+    empty list. Also added a methos return a list of recipies with a
+    specified ingredient and if not found then returned an empty list.
+
+commit aa7d82f2aa53943f8a8837950c9900d7b53e3820
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Wed Oct 30 16:24:31 2024 -0400
+
+    3A Update GUI to Display Recpies
+    
+    Added UI components to display the recipies in a TextArea
+    when the button is clicked.
+
+commit 6b3e4bb7fc21a3ac2f21de73bb26f5aceb978e69
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Wed Oct 30 16:04:59 2024 -0400
+
+    2C Connect GUI to BL Add Recipe/ingredient
+    
+    Implemented the method to add selected ingredients to my recipe
+    list when the ingredeint is selected and button is clicked. Also,
+    implemented MainWindow to create a Recipe object with the name and list
+    of ingredeints. Converted the recipe objects into String to be saved
+    into a file and be formatted like th eutility class expects.
+
+commit a349eb4cb9ce416af785522e49fb325b4a10c4f3
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Wed Oct 30 15:19:28 2024 -0400
+
+    2B Update BL to Store and Write Recipe
+    
+    Implemented a class to store and manage informationf for a recipe.
+    Implmented a second class Utility class to convert recipies to string.
+    Implmented a third class to write a recipe to a file and checks if the
+    recipe with the same name already exists. Throws appropiate exceptions.
+
+commit 842cb7c5411ab546a9095e7e610c6d7a0fc918ba
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Tue Oct 29 22:53:50 2024 -0400
+
+    2A Update GUI to Add New Recipe
+    
+    Add UI components to diplay a list of the recipe ingredients.
+    Another one to to add current ingredients to list, another to
+    add recipe to the book with the ingredients and name, and a
+    textfield for the recipe name.
+
+commit 429a22f62d103246bf01cd5a6119551408b3f8f9
+Merge: 5c2dbe4 6e8b8b5
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Tue Oct 29 20:37:57 2024 -0400
+
+    Merge branch 'featureSort'
+    
+    Merge feature branch to master branch.
+
+commit 5c2dbe43e6cc95a6014d97366869284c3cc61392
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Tue Oct 29 20:37:49 2024 -0400
+
+    Save chnages to merge branches
+    
+    Save any changes made in master.
+
+commit 6e8b8b52d3cb61cf74f05254df1907f1723ee0f8
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Tue Oct 29 20:35:54 2024 -0400
+
+    1C Connect GUI to BL to Sort Criteria
+    
+    Implemented the toString methods for both comparators. Implemented
+    in MainWindow to initialize the sort criteria comboBox so it
+    stores a TypeComparator and NameComparator. Add a method to trigger
+    sort criteria when selected that will  sort the ingredients by using
+    the currently selected criteria. Updated the add and remove methods to
+    make sure list is sorted after it's been updated.
+
+commit ac6f887744d32c0c5a0c233912b7b83d8a6c5a11
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Tue Oct 29 19:54:31 2024 -0400
+
+    1A Update BL to Implement Comparators
+    
+    Added two comparators to model. The type comparator compared two
+    objects by type of ingredient. The other name comparator, compared
+    the two objects by ingredient name.
+
+commit 787d8941883c06d0d74479bb093a8e11a6083496
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Tue Oct 29 19:42:00 2024 -0400
+
+    1A Update GUI to select criteria
+    
+    Added a label and comboBox to support sorting the criteria.
+
+commit bb1adad2630d4bb425cc28b6d7fb2133e2df14a7
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Tue Oct 29 19:20:53 2024 -0400
+
+    Add project into eclipse
+    
+    Added project into eclipse to start tasks.
+
+commit 6fe8abd181516d0e5af909b81ae3bf4fb04a7c6e
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Tue Oct 29 19:16:39 2024 -0400
+
+    Add Project 2
+    
+    Add my project into my github repo

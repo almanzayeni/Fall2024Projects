@@ -1,0 +1,14 @@
+Wagyu
+Wagyu-Meat, Salt-Spice, Pepper-Spice, Potatoes-Vegetable, Carrot-Vegetable
+Veggie Bread
+Carrot-Vegetable, Potatoes-Vegetable, Pepper-Spice, Salt-Spice, Wheat-Bread
+Expensive
+Wagyu-Meat, Carrot-Vegetable, Potatoes-Vegetable
+Sandwhich
+Ham-Meat, Wheat-Bread, Mayo-Spice
+Vegetal
+Carrot-Vegetable
+Carrot Cake
+Flour-Bread, Carrot-Vegetable
+Carne Asada
+Diezmillo-Meat, Clavel-Spice
