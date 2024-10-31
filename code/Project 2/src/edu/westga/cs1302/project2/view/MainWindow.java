@@ -1,5 +1,6 @@
 package edu.westga.cs1302.project2.view;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -9,6 +10,8 @@ import edu.westga.cs1302.project2.model.Ingredient;
 import edu.westga.cs1302.project2.model.NameComparator;
 import edu.westga.cs1302.project2.model.Recipe;
 import edu.westga.cs1302.project2.model.RecipeFileWriter;
+import edu.westga.cs1302.project2.model.RecipeLoader;
+import edu.westga.cs1302.project2.model.RecipeUtility;
 import edu.westga.cs1302.project2.model.TypeComparator;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -113,8 +116,33 @@ public class MainWindow {
     }
     
     @FXML
-    void displayRecipies(ActionEvent event) {
+    void displayRecipies(ActionEvent event) throws FileNotFoundException {
+        Ingredient selectedIngredient = this.ingredientsList.getSelectionModel().getSelectedItem();
+        if (selectedIngredient == null) {
+            this.showAlert("Ingredient Selection", "Please select an ingredient.");
+            return;
+        }
 
+        List<Recipe> allRecipes = RecipeLoader.loadRecipeFromFile("recipes.txt");
+        List<Recipe> filteredRecipes = new ArrayList<>();
+
+        for (Recipe recipe : allRecipes) {
+            for (String ingredient : recipe.getIngredients()) {
+                if (ingredient.split("-")[0].equalsIgnoreCase(selectedIngredient.getName())) {
+                    filteredRecipes.add(recipe);
+                    break;
+                }
+            }
+        }
+
+        String displayText;
+        if (filteredRecipes.isEmpty()) {
+            displayText = "No recipes found with the specified ingredient.";
+        } else {
+            displayText = RecipeUtility.convertRecipesFileToString(filteredRecipes);
+        }
+
+        this.recipeList.setText(displayText);
     }
     
 	@FXML

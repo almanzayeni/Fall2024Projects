@@ -17,14 +17,15 @@ public class RecipeUtility {
 	 * @return recipe objects as String
 	 */
 	public static String converRecipeToString(Recipe recipe) {
-		StringBuilder ingredientsList = new StringBuilder();
-		for (int index = 0; index < recipe.getIngredients().size(); index++) {
-			ingredientsList.append(recipe.getIngredients().get(index));
-			if (index < recipe.getIngredients().size() - 1) {
-				ingredientsList.append(", ");
-			}
-		}
-		return recipe.getName() + "\n" + ingredientsList.toString();
+	    StringBuilder ingredientsList = new StringBuilder();
+	    for (int index = 0; index < recipe.getIngredients().size(); index++) {
+	        ingredientsList.append(recipe.getIngredients().get(index));
+	        if (index < recipe.getIngredients().size() - 1) {
+	            ingredientsList.append(", ");
+	        }
+	    }
+
+	    return recipe.getName() + System.lineSeparator() + ingredientsList.toString();
 	}
 	
     /**
@@ -33,12 +34,18 @@ public class RecipeUtility {
      * @param recipes the list of recipes to be converted
      * @return string representation of the list of recipes
      */
-    public static String convertRecipesToString(List<Recipe> recipes) {
+    public static String convertRecipesFileToString(List<Recipe> recipes) {
         StringBuilder result = new StringBuilder();
+
+        String separator = System.lineSeparator();
+        
         for (int index = 0; index < recipes.size(); index++) {
-            result.append(converRecipeToString(recipes.get(index)));
+            Recipe recipe = recipes.get(index);
+            result.append(converRecipeToString(recipe)); 
+
             if (index < recipes.size() - 1) {
-                result.append("\n\n");
+                result.append(separator); 
+                result.append(separator); 
             }
         }
         return result.toString();
