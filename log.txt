@@ -1,0 +1,33 @@
+commit ba4461f87a9f9fd3f620cbd3e5bcf92c567470e9
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Wed Nov 6 20:15:52 2024 -0500
+
+    Github repo link
+    
+    Added a link to my github repo.
+
+commit 8741a040b648d2f65f19dea412d893817ce7ebc0
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Wed Nov 6 20:12:51 2024 -0500
+
+    Bind View to ViewModel
+    
+    Databinded view to viewmodel using the viewmodel just made.
+
+commit 4da29ade399a23883acddba1be732b9bc6d2f390
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Wed Nov 6 19:08:19 2024 -0500
+
+    Implement ViewModel
+    
+    Implemented a viewmodel class for propert objects for each
+    value needed by the UI and also the appropiate methods. Added
+    tests for functionality of the viewmodel.
+
+commit 13246e212ff16bb8240a07613d019d29f4a8805f
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Wed Nov 6 18:07:12 2024 -0500
+
+    Project Setup
+    
+    Import project into eclipse.
