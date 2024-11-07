@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 commit 6ace37c35492e6035fffeb0aa0056df3113c67dd
 Author: Yeni Almanza <ya00013@my.westga.edu>
 Date:   Mon Sep 23 15:09:25 2024 -0400
@@ -132,11 +133,17 @@ Date:   Sat Sep 21 00:19:28 2024 -0400
 commit 1a45b3cf67335bccef740cddec1e245d2e020814
 Author: Yeni Almanza <ya00013@my.westga.edu>
 Date:   Sat Oct 12 11:16:12 2024 -0400
+=======
+commit ba4461f87a9f9fd3f620cbd3e5bcf92c567470e9
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Wed Nov 6 20:15:52 2024 -0500
+>>>>>>> master
 
     Github repo link
     
     Added a link to my github repo.
 
+<<<<<<< HEAD
 commit 011ceef3d45e13dc152d3b9a7bad8e8eee49a126
 Author: Yeni Almanza <ya00013@my.westga.edu>
 Date:   Sat Oct 12 11:12:15 2024 -0400
@@ -330,4 +337,31 @@ Date:   Tue Oct 29 19:16:39 2024 -0400
     Add Project 2
     
     Add my project into my github repo
+>>>>>>> master
+=======
+commit 8741a040b648d2f65f19dea412d893817ce7ebc0
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Wed Nov 6 20:12:51 2024 -0500
+
+    Bind View to ViewModel
+    
+    Databinded view to viewmodel using the viewmodel just made.
+
+commit 4da29ade399a23883acddba1be732b9bc6d2f390
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Wed Nov 6 19:08:19 2024 -0500
+
+    Implement ViewModel
+    
+    Implemented a viewmodel class for propert objects for each
+    value needed by the UI and also the appropiate methods. Added
+    tests for functionality of the viewmodel.
+
+commit 13246e212ff16bb8240a07613d019d29f4a8805f
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Wed Nov 6 18:07:12 2024 -0500
+
+    Project Setup
+    
+    Import project into eclipse.
 >>>>>>> master
