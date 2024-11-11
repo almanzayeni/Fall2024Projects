@@ -28,9 +28,11 @@ public class MainWindow {
     @FXML
     void initialize() {
     	this.vm = new ViewModel();
+    	
     	this.vm.getRequireDigits().bind(this.mustIncludeDigits.selectedProperty());
     	this.vm.getRequireLowercase().bind(this.mustIncludeLowerCaseLetters.selectedProperty());
     	this.vm.getRequireUppercase().bind(this.mustIncludeUpperCaseLetters.selectedProperty());
+    	
     	this.minimumLength.setText(this.vm.getMinimumLength().getValue());
     	this.vm.getMinimumLength().bind(this.minimumLength.textProperty());
     	

@@ -14,6 +14,8 @@ import javafx.beans.property.StringProperty;
  * @version Fall 2024
  */
 public class ViewModel {
+    private static final String MIN_LENGTH_REGEX = "[1-9][0-9]*$";
+    
 	private StringProperty minimumLength;
 	private BooleanProperty requireDigits;
 	private BooleanProperty requireLowercase;
@@ -23,7 +25,7 @@ public class ViewModel {
 	private StringProperty errorText;
 	
     private PasswordGenerator generator;
-	
+    	
 	/** Initialize the properties for the viewmodel
 	 */
 	public ViewModel() {
@@ -37,6 +39,14 @@ public class ViewModel {
 
         Random randomNumberGenerator = new Random();
         this.generator = new PasswordGenerator(randomNumberGenerator.nextLong());
+        
+        this.minimumLength.addListener((observable, oldValue, newValue) -> {
+        	if (!newValue.matches(MIN_LENGTH_REGEX)) {
+        		this.errorText.setValue("Minimum length must be positive");
+        	} else {
+        		this.errorText.setValue("");
+        	}
+        });
 	}
 
 	/** Return the minimum length property
@@ -94,30 +104,29 @@ public class ViewModel {
 	 * If an error is encountered, the password property is set to empty, and the error text property is populated with a message describing the problem.
 	 */
 	public void generatePassword() {
-    	int minimumLength = -1;
-    	this.password.setValue("");
-    	
-    	try {
-    		minimumLength = Integer.parseInt(this.minimumLength.getValue());
-    	} catch (NumberFormatException numberError) {
-    		this.errorText.setValue("Invalid Minimum Length: must be a positive integer, but was " + this.minimumLength.getValue());
-    		return;
-    	}
-    	
-    	try {
-    		this.generator.setMinimumLength(minimumLength);
-    	} catch (IllegalArgumentException invalidLengthError) {
-    		this.errorText.setValue("Invalid Minimum Length: " + invalidLengthError.getMessage());
-    		return;
-    	}
-    	
-    	this.generator.setMustHaveAtLeastOneDigit(this.requireDigits.getValue());
-    	this.generator.setMustHaveAtLeastOneLowerCaseLetter(this.requireLowercase.getValue());
-    	this.generator.setMustHaveAtLeastOneUpperCaseLetter(this.requireUppercase.getValue());
-    	
-    	String password = this.generator.generatePassword();
-    	
-    	this.password.setValue(password);
+        int minLength;
+        this.password.setValue(""); 
+        
+        try {
+            minLength = Integer.parseInt(this.minimumLength.getValue());
+        } catch (NumberFormatException minErr) {
+            this.errorText.setValue("Invalid Minimum Length: must be a positive integer.");
+            return;
+        }
+        
+        try {
+            this.generator.setMinimumLength(minLength);
+        } catch (IllegalArgumentException minErr) {
+            this.errorText.setValue("Invalid Minimum Length: " + minErr.getMessage());
+            return;
+        }
+        
+        this.generator.setMustHaveAtLeastOneDigit(this.requireDigits.getValue());
+        this.generator.setMustHaveAtLeastOneLowerCaseLetter(this.requireLowercase.getValue());
+        this.generator.setMustHaveAtLeastOneUpperCaseLetter(this.requireUppercase.getValue());
+        
+        String generatedPassword = this.generator.generatePassword();
+        this.password.setValue(generatedPassword);
     }
 
 }
