@@ -1,0 +1,34 @@
+commit ee6298ae4dff8b7b289267aaf6bd0abc687536c6
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Mon Nov 11 17:10:17 2024 -0500
+
+    Github Repo Link
+    
+    Added a file to my github repo.
+
+commit 2571564e52ab08277dfefe4bb96a690074d0cf65
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Mon Nov 11 15:02:14 2024 -0500
+
+    Store list of Passwords
+    
+    Removed the text area and added a list view UI. Then set up list in
+    viewmodel and bided to code behind. Also, updated the tests.
+
+commit 8c8130eb87b89c1be55d8388308808bc1fb66c14
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Mon Nov 11 14:22:04 2024 -0500
+
+    Implement input validation
+    
+    Added a chnage listener so numbers would be input into
+    the minimum length text field. Also if no number was added
+    then error label would be displayed.
+
+commit 4e9e979419ea19634695a5fc15d4531e935edfcc
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Thu Nov 7 15:29:37 2024 -0500
+
+    Setup Lab 8
+    
+    Set up lab in eclipse.
