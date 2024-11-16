@@ -2,6 +2,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 commit 6ace37c35492e6035fffeb0aa0056df3113c67dd
 Author: Yeni Almanza <ya00013@my.westga.edu>
 Date:   Mon Sep 23 15:09:25 2024 -0400
@@ -401,4 +402,58 @@ Date:   Thu Nov 7 15:29:37 2024 -0500
     Setup Lab 8
     
     Set up lab in eclipse.
+>>>>>>> master
+=======
+commit bb932c52af2510bbf4061602e148ad344b6cef34
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Sat Nov 16 09:57:59 2024 -0500
+
+    Github Repo Link
+    
+    Added link to github repo.
+
+commit a4f733be822b8273ddb9114bef892e0e9f3dae2e
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Sat Nov 16 09:54:40 2024 -0500
+
+    Enable/Dsiable Generate Password
+    
+    Disbaled the button when user enters zero or a negative
+    number. Also, when the text field is blank. Otherwise, the
+    button is enabled.
+
+commit ba27cf2419d4f8c090f8a01c828a4fd8e27f1df8
+Merge: f1864cd 0ed499e
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Sat Nov 16 09:47:06 2024 -0500
+
+    Merge branch 'featureMenu'
+    
+    Merge to master branch
+
+commit f1864cd410f584823b4dffadc913397354f6069e
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Sat Nov 16 09:46:58 2024 -0500
+
+    Commit changes
+    
+    Commit changes to merge branches.
+
+commit 0ed499eff78544cf6b7d48030ef2400969025956
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Sat Nov 16 09:44:49 2024 -0500
+
+    Menu
+    
+    Added a menur bar with a File menu and two menuItems. The about menu
+    item had to display infromation about the project and the author. The
+    close menu item had to exit the application.
+
+commit a27b4ca6afd3292adadb87c174dab922f9cd1850
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Thu Nov 14 15:13:50 2024 -0500
+
+    Setup Lab
+    
+    Setup lab in eclipse.
 >>>>>>> master

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.input.KeyCodeCombination?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="guiPane" minHeight="366.0" minWidth="215.0" prefHeight="382.0" prefWidth="215.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.westga.cs1302.password_generator.view.MainWindow">
+   <children>
+      <CheckBox fx:id="mustIncludeDigits" layoutX="13.0" layoutY="64.0" mnemonicParsing="false" text="Must Include Digits" />
+      <CheckBox fx:id="mustIncludeLowerCaseLetters" layoutX="13.0" layoutY="94.0" mnemonicParsing="false" text="Must Include Lower Case Letters" />
+      <CheckBox fx:id="mustIncludeUpperCaseLetters" layoutX="13.0" layoutY="125.0" mnemonicParsing="false" text="Must Include Upper Case Letters" />
+      <Button fx:id="generatePasswordButton" layoutX="45.0" layoutY="169.0" mnemonicParsing="false" text="Generate Password" />
+      <Label layoutX="13.0" layoutY="33.0" text="Minimum Length" />
+      <TextField fx:id="minimumLength" layoutX="117.0" layoutY="29.0" prefHeight="25.0" prefWidth="41.0" />
+      <TextArea fx:id="output" editable="false" layoutX="11.0" layoutY="198.0" prefHeight="169.0" prefWidth="193.0" wrapText="true" />
+      <Label fx:id="errorTextLabel" layoutX="9.0" layoutY="136.0" prefHeight="17.0" prefWidth="199.0" textFill="RED" />
+      <MenuBar layoutY="2.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+                  <MenuItem fx:id="aboutMenuItem" mnemonicParsing="false" text="About">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="A" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+              <MenuItem fx:id="closeMenuItem" mnemonicParsing="false" text="Close">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="E" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+            </items>
+               <accelerator>
+                  <KeyCodeCombination alt="UP" code="F" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+               </accelerator>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </children>
+</AnchorPane>
