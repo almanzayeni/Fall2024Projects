@@ -60,6 +60,7 @@ public class MainWindow {
         this.setUpLoadTasksMenu();
         this.setUpSaveTasksMenu();
         this.setUpAddTaskButton();
+        this.setUpRemoveTaskButton();
     }
     
     private void bindProperties() {
@@ -128,7 +129,17 @@ public class MainWindow {
     	);
     }
     		
-
+    private void setUpRemoveTaskButton() {
+        this.removeTask.setOnAction(event -> {
+            if (this.viewModel.getSelectedTask().get() != null) {
+                this.viewModel.removeSelectedTask();
+            } else {
+                Alert alert = new Alert(AlertType.WARNING);
+                alert.setContentText("Please select a task to remove.");
+                alert.showAndWait();
+            }
+        });
+    }
     private void showAlert(String title, String message, AlertType alertType) {
         Alert alert = new Alert(alertType);
         alert.setTitle(title);

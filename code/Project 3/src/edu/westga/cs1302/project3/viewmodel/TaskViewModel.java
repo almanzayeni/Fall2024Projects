@@ -113,6 +113,17 @@ public class TaskViewModel {
     }
     
     /**
+     * Removes the currently selected task from the task manager.
+     */
+    public void removeSelectedTask() {
+        Task selected = this.selectedTask.get();
+        if (selected != null) {
+            this.taskManager.removeTask(selected); 
+            this.tasks.set(FXCollections.observableArrayList(this.taskManager.getTasks())); 
+        }
+    }
+    
+    /**
      * Loads tasks from a file selected by the user.
      *
      * @param stage the stage used to show the file chooser
