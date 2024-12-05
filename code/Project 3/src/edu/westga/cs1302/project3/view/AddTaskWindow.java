@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 /** Codebehind for the Add Task Window of the application.
  * 
@@ -31,4 +32,12 @@ public class AddTaskWindow {
 		this.vm = viewModel;
 		
 	}
+	
+    @FXML
+    private void initialize() {
+        this.cancelButton.setOnAction(event -> {
+            Stage stage = (Stage) this.cancelButton.getScene().getWindow();
+            stage.close();
+        });
+    }
 }
