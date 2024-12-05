@@ -28,12 +28,25 @@ class TestSaveTasks {
         assertTrue(file.exists(), "File should exist");
 
         try (Scanner scanner = new Scanner(file)) {
-            assertTrue(scanner.hasNextLine());
+            assertTrue(scanner.hasNextLine(), "File should contain tasks");
+
             String line1 = scanner.nextLine();
-            assertEquals("Complete homework:\n Finish the math assignment by tomorrow", line1); 
+            System.out.println(line1); 
+            assertEquals("Complete homework:", line1);
+
+            String description1 = scanner.nextLine();
+            System.out.println(description1);
+            assertEquals("Finish the math assignment by tomorrow", description1);
+
             String line2 = scanner.nextLine();
-            assertEquals("Read chapter 5:\n Read through the entire chapter", line2); 
+            System.out.println(line2); 
+            assertEquals("Read chapter 5:", line2);
+
+            String description2 = scanner.nextLine();
+            System.out.println(description2);
+            assertEquals("Read through the entire chapter", description2);
         }
-        file.delete();
+
+        file.delete();  
     }
 }

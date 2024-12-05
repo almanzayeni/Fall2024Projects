@@ -23,7 +23,7 @@ public class TaskFileManager {
 	public static void saveTasks(TaskManager taskManager, String filePath) throws IOException {
 		try (FileWriter writer = new FileWriter(filePath)) {
 			for (Task task : taskManager.getTasks()) {
-				writer.write(task.getTitle() + ":\n" + task.getDescription() + System.lineSeparator());
+				 writer.write(task.getTitle() + ":\n" + task.getDescription() + "\n");
 			}
 		}
 		
@@ -38,15 +38,28 @@ public class TaskFileManager {
 	 */
 	public static TaskManager loadTasks(String filePath) throws IOException {
 	    TaskManager taskManager = new TaskManager();
+	    
 	    try (Scanner scanner = new Scanner(new File(filePath))) {
 	        while (scanner.hasNextLine()) {
-	            String line = scanner.nextLine();
+	            String line = scanner.nextLine().trim();
+
+	            if (line.isEmpty()) {
+	                continue;
+	            }
 	            String[] parts = line.split(":", 2);
+	            
 	            if (parts.length == 2) {
-	                taskManager.addTask(new Task(parts[0], parts[1].trim()));
+	                String title = parts[0].trim();
+	                
+	                String description = "";
+	                if (scanner.hasNextLine()) {
+	                    description = scanner.nextLine().trim();
+	                }
+	                taskManager.addTask(new Task(title, description));
 	            }
 	        }
 	    }
+	    
 	    return taskManager;
 	}
 }
