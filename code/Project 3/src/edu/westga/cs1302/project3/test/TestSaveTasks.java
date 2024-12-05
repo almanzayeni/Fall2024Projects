@@ -30,9 +30,9 @@ class TestSaveTasks {
         try (Scanner scanner = new Scanner(file)) {
             assertTrue(scanner.hasNextLine());
             String line1 = scanner.nextLine();
-            assertEquals("Complete homework: Finish the math assignment by tomorrow", line1); 
+            assertEquals("Complete homework:\n Finish the math assignment by tomorrow", line1); 
             String line2 = scanner.nextLine();
-            assertEquals("Read chapter 5: Read through the entire chapter", line2); 
+            assertEquals("Read chapter 5:\n Read through the entire chapter", line2); 
         }
         file.delete();
     }

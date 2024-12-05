@@ -23,7 +23,7 @@ public class TaskFileManager {
 	public static void saveTasks(TaskManager taskManager, String filePath) throws IOException {
 		try (FileWriter writer = new FileWriter(filePath)) {
 			for (Task task : taskManager.getTasks()) {
-				writer.write(task.getTitle() + ": " + task.getDescription() + System.lineSeparator());
+				writer.write(task.getTitle() + ":\n" + task.getDescription() + System.lineSeparator());
 			}
 		}
 		

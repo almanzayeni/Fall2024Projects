@@ -63,7 +63,7 @@ public class Task {
 	 */
 	@Override
 	public String toString() {
-		return this.title + " " + this.description;
+		return this.title + ":\n" + this.description;
 	}
 	
 }
