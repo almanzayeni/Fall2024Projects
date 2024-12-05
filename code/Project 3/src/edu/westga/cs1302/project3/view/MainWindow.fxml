@@ -13,16 +13,16 @@
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-                  <MenuItem mnemonicParsing="false" text="Load Tasks" />
-                  <MenuItem mnemonicParsing="false" text="Save Tasks" />
-              <MenuItem mnemonicParsing="false" text="Add Task" />
-                  <MenuItem mnemonicParsing="false" text="Add People" />
-                  <MenuItem mnemonicParsing="false" text="Close" />
+                  <MenuItem fx:id="loadTasks" mnemonicParsing="false" text="Load Tasks" />
+                  <MenuItem fx:id="saveTasks" mnemonicParsing="false" text="Save Tasks" />
+              <MenuItem fx:id="addTaskMenu" mnemonicParsing="false" text="Add Task" />
+                  <MenuItem fx:id="addPeople" mnemonicParsing="false" text="Add People" />
+                  <MenuItem fx:id="close" mnemonicParsing="false" text="Close" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
-              <MenuItem mnemonicParsing="false" text="About" />
+              <MenuItem fx:id="about" mnemonicParsing="false" text="About" />
             </items>
           </Menu>
         </menus>

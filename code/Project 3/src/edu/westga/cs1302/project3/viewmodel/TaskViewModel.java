@@ -1,14 +1,19 @@
 package edu.westga.cs1302.project3.viewmodel;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import edu.westga.cs1302.project3.model.Task;
+import edu.westga.cs1302.project3.model.TaskFileManager;
 import edu.westga.cs1302.project3.model.TaskManager;
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleListProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
 /**
  * View model for properties
@@ -60,25 +65,27 @@ public class TaskViewModel {
     }
     
     /**
-     * Adds a new task to the task list.
-     * 
-     * @param title the title of the new task
-     * @param description the description of the new task
+     * Loads tasks from a file selected by the user.
+     *
+     * @param stage the stage used to show the file chooser
+     * @throws IOException if an I/O error occurs during file reading
      */
-    public void addTask(String title, String description) {
-        Task newTask = new Task(title, description);
-        this.taskManager.addTask(newTask);
-        this.tasks.set(FXCollections.observableArrayList(this.taskManager.getTasks()));
-    }
-    
-    /**
-     * Removes the selected task.
-     */
-    public void removeTask() {
-        Task taskToRemove = this.selectedTask.get();
-        if (taskToRemove != null) {
-            this.taskManager.removeTask(taskToRemove);
-            this.tasks.set(FXCollections.observableArrayList(this.taskManager.getTasks()));
+    public void loadTasksFromFile(Stage stage) throws IOException {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Text Files", "*.txt"));
+        File selectedFile = fileChooser.showOpenDialog(stage);
+
+        if (selectedFile != null) {
+            try {
+                TaskManager loadedTasks = TaskFileManager.loadTasks(selectedFile.getAbsolutePath());
+                if (loadedTasks.getTasks().isEmpty()) {
+                    throw new IllegalArgumentException("The selected file does not contain valid tasks.");
+                }
+                this.taskManager = loadedTasks;
+                this.tasks.set(FXCollections.observableArrayList(this.taskManager.getTasks()));
+            } catch (IllegalArgumentException | IOException err) {
+                throw err;
+            }
         }
     }
 }
