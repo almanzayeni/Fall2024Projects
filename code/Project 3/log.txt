@@ -1,0 +1,140 @@
+commit 41b73fc6a6d45a7bb11588a31e34c8742381d57f
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Thu Dec 5 12:25:46 2024 -0500
+
+    Github Link
+    
+    Added github repo link.
+
+commit 33fc31eecaf89029004931446358167a0516991f
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Thu Dec 5 12:23:50 2024 -0500
+
+    Added task file
+    
+    Added a file to load tasks into list.
+
+commit 4c7d2a477db62e732e73d598726ae0466795231e
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Thu Dec 5 12:20:00 2024 -0500
+
+    4 Avoid Duplicate tasks
+    
+    Changed tests for add and remove tasks.
+
+commit a3f7a4250e9786caae5f72475af03cd5745531b3
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Thu Dec 5 12:03:09 2024 -0500
+
+    4 Prevent Duplicate Task
+    
+    Added a map to view the list so there are no duplicate task in the
+    list. If title is used the description can be changed.
+
+commit df6aea4af8223b3b0b8cba55a93e6a780b0fcaa7
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Thu Dec 5 11:22:48 2024 -0500
+
+    Checkstyle error
+    
+    Fix a checkstyle error.
+
+commit f820bf73e1e22ab1ae84baef5002d5c7e98cc920
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Thu Dec 5 11:17:34 2024 -0500
+
+    3D Update GUI to Remove Task
+    
+    Implemented the a method to remove the seleted task from
+    the list. Binded to MainWindow so that when the minus button
+    is clicked the task will be removed.
+
+commit 260388158a4c4d0a8406976c423af0960e6cf121
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Thu Dec 5 11:06:57 2024 -0500
+
+    3C Update GUI to Add Task
+    
+    Added properties to viewmodel to add a task with title and
+    description. Then binded to addTaskWindow and added a method to add
+    task when addTask button is clicked. After that it cloeses itslef.
+
+commit 359568eb60912117df61229e00666008139abf3d
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Thu Dec 5 10:46:39 2024 -0500
+
+    3B Update GUI to Cancel Window
+    
+    Updated the AddTaskWindow to close itself when the cancel
+    button is clicked.
+
+commit 179fb38062444df6376dc003feacc2877fe008ba
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Thu Dec 5 10:42:39 2024 -0500
+
+    Update GUI to display window
+    
+    Updated the mainwindow to display the AddTaskWindow as a modal
+    dialog when clikcing the plus button.
+
+commit 78be822f1ce752a9ebf8c254f00de9af89f4fdb7
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Thu Dec 5 10:05:05 2024 -0500
+
+    2C Update GUI to Save Tasks
+    
+    implemented the save menuitem to save the current task in the
+    listview and if no file was selected nothing happened. If a
+    locked file was chosen user was warned about the fiel.
+
+commit 33855c119cdfc0ae07f02e179c9a5f16d0804fbd
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Thu Dec 5 09:36:49 2024 -0500
+
+    2A Update GUI to Load Task
+    
+    added a method to viewmodel and binded to mainwindow to load tasks
+    from a text file when it's in the correct format.
+
+commit d6873fea7158152c8cd45f898868961fb1573fe9
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Wed Dec 4 23:37:05 2024 -0500
+
+    1C Adjust format
+    
+    Adjusted format for saving and loading tasks.
+
+commit 2bbb6242cb9095e4b1e40dd102351951634f42b3
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Wed Dec 4 23:07:10 2024 -0500
+
+    2A Implemnet GUI Set of task
+    
+    Implement viemodel class and do binding.
+
+commit 83e75789664269236a3df81fee1fb79772dec702
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Wed Dec 4 17:27:57 2024 -0500
+
+    1C Loading and Saving Tasks
+    
+    Adde a file manager class to save and load tasks. Also added
+    unit test.
+
+commit e14cf519007ba7855fb276ad566d9c1189117874
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Wed Dec 4 17:15:49 2024 -0500
+
+    1A and 1B
+    
+    Added a class to store a task and apporpiate unit tests.
+    Also added a class to manage the list of tasks and added
+    units tests for two methods.
+
+commit b5cb4d75d9acc5de64c5675f0c0352c66cc85c78
+Author: Yeni Almanza <ya00013@my.westga.edu>
+Date:   Wed Dec 4 14:38:06 2024 -0500
+
+    Add Project to Eclipse
+    
+    Added my project into eclipse.
