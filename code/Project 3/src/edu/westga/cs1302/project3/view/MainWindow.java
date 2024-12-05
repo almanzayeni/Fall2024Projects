@@ -53,6 +53,7 @@ public class MainWindow {
         this.viewModel = new TaskViewModel();
         this.bindProperties();
         this.setUpLoadTasksMenu();
+        this.setUpSaveTasksMenu();
     }
     
     private void bindProperties() {
@@ -79,6 +80,17 @@ public class MainWindow {
                 this.viewModel.loadTasksFromFile(stage);
             } catch (IOException | IllegalArgumentException err) {
                 this.showAlert("Error", "An error occurred while loading the tasks.\n" + err.getMessage(), AlertType.ERROR);
+            }
+        });
+    }
+    
+    private void setUpSaveTasksMenu() {
+        this.saveTasks.setOnAction(event -> {
+            try {
+                Stage stage = (Stage) this.saveTasks.getParentPopup().getOwnerWindow();
+                this.viewModel.saveTasksToFile(stage);
+            } catch (IOException err) {
+                this.showAlert("Error", "An error occurred while saving the tasks.\n" + err.getMessage(), AlertType.ERROR);
             }
         });
     }

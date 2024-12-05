@@ -88,4 +88,24 @@ public class TaskViewModel {
             }
         }
     }
+    
+    /**
+     * Saves the current tasks to a file selected by the user.
+     *
+     * @param stage the stage used to show the file chooser
+     * @throws IOException if an I/O error occurs during file writing
+     */
+    public void saveTasksToFile(Stage stage) throws IOException {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Text Files", "*.txt"));
+        File selectedFile = fileChooser.showSaveDialog(stage);
+
+        if (selectedFile != null) {
+            try {
+                TaskFileManager.saveTasks(this.taskManager, selectedFile.getAbsolutePath());
+            } catch (IOException err) {
+                throw new IOException("Unable to write to the file. Ensure the file is not locked or read-only.", err);
+            }
+        }
+    }
 }
