@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ContextMenu;
 import javafx.scene.control.ListView;
 import javafx.scene.control.MenuItem;
 import javafx.stage.Modality;
@@ -24,16 +25,12 @@ import javafx.stage.Stage;
  */
 public class MainWindow {
     @FXML private MenuItem about;
-
-    @FXML private MenuItem addPeople;
     
     @FXML private MenuItem close;
 
     @FXML private MenuItem loadTasks;
     
     @FXML private MenuItem saveTasks;
-    
-    @FXML private MenuItem addTaskMenu;
     
     @FXML private Button addTask;
 
@@ -46,9 +43,7 @@ public class MainWindow {
     @FXML
     void initialize() {
     	  assert this.about != null : "fx:id=\"about\" was not injected: check your FXML file 'MainWindow.fxml'.";
-          assert this.addPeople != null : "fx:id=\"addPeople\" was not injected: check your FXML file 'MainWindow.fxml'.";
           assert this.addTask != null : "fx:id=\"addTask\" was not injected: check your FXML file 'MainWindow.fxml'.";
-          assert this.addTaskMenu != null : "fx:id=\"addTaskMenu\" was not injected: check your FXML file 'MainWindow.fxml'.";
           assert this.close != null : "fx:id=\"close\" was not injected: check your FXML file 'MainWindow.fxml'.";
           assert this.loadTasks != null : "fx:id=\"loadTasks\" was not injected: check your FXML file 'MainWindow.fxml'.";
           assert this.removeTask != null : "fx:id=\"removeTask\" was not injected: check your FXML file 'MainWindow.fxml'.";
@@ -61,6 +56,8 @@ public class MainWindow {
         this.setUpSaveTasksMenu();
         this.setUpAddTaskButton();
         this.setUpRemoveTaskButton();
+        this.setUpCloseMenuItem();
+        this.setUpRightClickContextMenu();
     }
     
     private void bindProperties() {
@@ -139,6 +136,30 @@ public class MainWindow {
                 alert.showAndWait();
             }
         });
+    }
+    
+    private void setUpCloseMenuItem() {
+        this.close.setOnAction(event -> {
+            Stage stage = (Stage) this.close.getParentPopup().getOwnerWindow();
+            stage.close();
+        });
+    }
+    
+    private void setUpRightClickContextMenu() {
+        ContextMenu contextMenu = new ContextMenu();
+        MenuItem showDetails = new MenuItem("Show Details");
+        showDetails.setOnAction(event -> {
+            Task selectedTask = this.viewModel.getSelectedTask().get();
+            if (selectedTask != null) {
+                this.showAlert("Task Details", 
+                    "Title: " + selectedTask.getTitle() + "\n" 
+                + "Description: " + selectedTask.getDescription(),
+                    Alert.AlertType.INFORMATION
+                );
+            }
+        });
+        contextMenu.getItems().add(showDetails);
+        this.taskListView.setContextMenu(contextMenu);
     }
     
     private void showAlert(String title, String message, AlertType alertType) {

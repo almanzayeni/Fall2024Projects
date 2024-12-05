@@ -105,11 +105,16 @@ public class TaskViewModel {
      * 
      * @param title       the title of the task
      * @param description the description of the task
+     * @return is Added when task is added
      */
-    public void addTask(String title, String description) {
+    public boolean addTask(String title, String description) {
         Task newTask = new Task(title, description);
-        this.taskManager.addTask(newTask);
-        this.tasks.set(FXCollections.observableArrayList(this.taskManager.getTasks()));
+        boolean isAdded = this.taskManager.addTask(newTask);
+        if (isAdded) {
+            // Refresh the task list
+            this.tasks.set(FXCollections.observableArrayList(this.taskManager.getTasks()));
+        }
+        return isAdded;
     }
     
     /**

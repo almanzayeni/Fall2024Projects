@@ -1,7 +1,9 @@
 package edu.westga.cs1302.project3.model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Manages a collection of tasks
@@ -11,6 +13,7 @@ import java.util.List;
  */
 public class TaskManager {
 	private List<Task> tasks;
+	 private Map<String, Task> taskLookup;
 	
 	/**
 	 * Initializes a list of tasks
@@ -20,6 +23,7 @@ public class TaskManager {
 	 */
 	public TaskManager() {
 		this.tasks = new ArrayList<>();
+		this.taskLookup = new HashMap<>();
 	}
 
 	/**
@@ -28,19 +32,24 @@ public class TaskManager {
 	 * @return the task added
 	 */
 	public List<Task> getTasks() {
-		return this.tasks;
+		 return List.copyOf(this.taskLookup.values());
 	}
 	
 	/**
 	 * Add a task 
 	 * 
 	 * @param task the task to add
+	 * @return true, when 
 	 */
-	public void addTask(Task task) {
-		if (task == null) {
-			throw new IllegalArgumentException("Task cannot be null");
-		}
-		this.tasks.add(task);
+	public boolean addTask(Task task) {
+        if (this.taskLookup.containsKey(task.getTitle())) {
+            Task existingTask = this.taskLookup.get(task.getTitle());
+            if (existingTask.getDescription().equals(task.getDescription())) {
+                return false;
+            }
+        }
+        this.taskLookup.put(task.getTitle(), task);
+        return true;
 	}
 	
 	/**
