@@ -39,17 +39,20 @@ public class TaskManager {
 	 * Add a task 
 	 * 
 	 * @param task the task to add
-	 * @return true, when 
+	 * @return true 
 	 */
 	public boolean addTask(Task task) {
-        if (this.taskLookup.containsKey(task.getTitle())) {
-            Task existingTask = this.taskLookup.get(task.getTitle());
-            if (existingTask.getDescription().equals(task.getDescription())) {
-                return false;
-            }
-        }
-        this.taskLookup.put(task.getTitle(), task);
-        return true;
+	    if (task == null) {
+	        throw new IllegalArgumentException("Task cannot be null");
+	    }
+	    if (this.taskLookup.containsKey(task.getTitle())
+	    		&& this.taskLookup.get(task.getTitle()).getDescription().equals(task.getDescription())) {
+	        return false;
+	    }
+
+	    this.tasks.add(task);
+	    this.taskLookup.put(task.getTitle(), task);
+	    return true;
 	}
 	
 	/**
@@ -59,10 +62,13 @@ public class TaskManager {
 	 * @return the list with removed task
 	 */
 	public boolean removeTask(Task task) {
-		if (task == null) {
-			throw new IllegalArgumentException("Task cannot be null");
-		}
-		return this.tasks.remove(task);
+	    if (task == null) {
+	        throw new IllegalArgumentException("Task cannot be null");
+	    }
+	    boolean removedFromList = this.tasks.remove(task);
+	    this.taskLookup.remove(task.getTitle());
+
+	    return removedFromList;
 	}
 	
     /**

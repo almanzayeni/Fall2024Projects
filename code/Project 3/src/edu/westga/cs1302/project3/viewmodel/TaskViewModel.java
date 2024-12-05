@@ -36,8 +36,8 @@ public class TaskViewModel {
         this.taskManager = new TaskManager();
         this.tasks = new SimpleListProperty<>(FXCollections.observableArrayList(new ArrayList<Task>()));
         this.selectedTask = new SimpleObjectProperty<>();
-        this.taskTitle = new SimpleStringProperty("");
-        this.taskDescription = new SimpleStringProperty("");
+        this.taskTitle = new SimpleStringProperty();
+        this.taskDescription = new SimpleStringProperty();
 
         this.addDefaultTasks();
         this.tasks.set(FXCollections.observableArrayList(this.taskManager.getTasks()));
@@ -47,9 +47,9 @@ public class TaskViewModel {
      * Adds some default tasks to the TaskManager.
      */
     private void addDefaultTasks() {
-        this.taskManager.addTask(new Task("Buy groceries", "Milk, eggs, bread"));
-        this.taskManager.addTask(new Task("Finish project", "Complete coding and documentation"));
-        this.taskManager.addTask(new Task("Clean room", "Vacuum and organize"));
+        this.taskManager.addTask(new Task("Buy groceries", "milk, eggs, bread"));
+        this.taskManager.addTask(new Task("Finish project", "complete coding and documentation"));
+        this.taskManager.addTask(new Task("Clean room", "vacuum and organize"));
     }
 
     /**
@@ -108,10 +108,14 @@ public class TaskViewModel {
      * @return is Added when task is added
      */
     public boolean addTask(String title, String description) {
+        if (title == null || title.isEmpty() || description == null || description.isEmpty()) {
+            return false;  
+        }
+
         Task newTask = new Task(title, description);
-        boolean isAdded = this.taskManager.addTask(newTask);
+        boolean isAdded = this.taskManager.addTask(newTask); 
+
         if (isAdded) {
-            // Refresh the task list
             this.tasks.set(FXCollections.observableArrayList(this.taskManager.getTasks()));
         }
         return isAdded;

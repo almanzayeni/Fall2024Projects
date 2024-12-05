@@ -11,7 +11,6 @@ class TestAddTask {
 
     @Test
     void testAddTaskValid() {
-        // Create a TaskManager
         TaskManager taskManager = new TaskManager();
 
         Task task = new Task("Complete homework", "Finish the math assignment by tomorrow.");
@@ -28,6 +27,20 @@ class TestAddTask {
             taskManager.addTask(null);
         });
         assertEquals("Task cannot be null", exception.getMessage());
+    }
+
+    @Test
+    void testAddDuplicateTask() {
+        TaskManager taskManager = new TaskManager();
+
+        Task task1 = new Task("Complete homework", "Finish the math assignment by tomorrow.");
+        Task task2 = new Task("Complete homework", "Finish the math assignment by tomorrow."); 
+
+        taskManager.addTask(task1);
+        taskManager.addTask(task2);  
+
+        assertEquals(1, taskManager.getTasks().size(), "Duplicate tasks should not be added.");
+        assertTrue(taskManager.getTasks().contains(task1), "Task 1 should be in the task list.");
     }
 
     @Test
