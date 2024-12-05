@@ -140,6 +140,7 @@ public class MainWindow {
             }
         });
     }
+    
     private void showAlert(String title, String message, AlertType alertType) {
         Alert alert = new Alert(alertType);
         alert.setTitle(title);
