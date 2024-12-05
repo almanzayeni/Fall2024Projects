@@ -30,6 +30,8 @@ public class AddTaskWindow {
      */
 	public void bindToVM(TaskViewModel viewModel) {
 		this.vm = viewModel;
+		this.title.textProperty().bindBidirectional(viewModel.getTaskTitle());
+        this.description.textProperty().bindBidirectional(viewModel.getTaskDescription());
 		
 	}
 	
@@ -37,6 +39,15 @@ public class AddTaskWindow {
     private void initialize() {
         this.cancelButton.setOnAction(event -> {
             Stage stage = (Stage) this.cancelButton.getScene().getWindow();
+            stage.close();
+        });
+        
+        this.addTaskButton.setOnAction(event -> {
+            String taskTitle = this.title.getText();
+            String taskDescription = this.description.getText();
+            this.vm.addTask(taskTitle, taskDescription);
+
+            Stage stage = (Stage) this.addTaskButton.getScene().getWindow();
             stage.close();
         });
     }

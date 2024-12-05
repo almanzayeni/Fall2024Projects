@@ -11,6 +11,8 @@ import javafx.beans.property.ListProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleListProperty;
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -24,6 +26,8 @@ public class TaskViewModel {
 	private TaskManager taskManager;
 	private ListProperty<Task> tasks;
 	private ObjectProperty<Task> selectedTask;
+	private StringProperty taskTitle;
+	private StringProperty taskDescription;
 	
 	/**
 	 * Initializes the properties
@@ -32,6 +36,8 @@ public class TaskViewModel {
         this.taskManager = new TaskManager();
         this.tasks = new SimpleListProperty<>(FXCollections.observableArrayList(new ArrayList<Task>()));
         this.selectedTask = new SimpleObjectProperty<>();
+        this.taskTitle = new SimpleStringProperty("");
+        this.taskDescription = new SimpleStringProperty("");
 
         this.addDefaultTasks();
         this.tasks.set(FXCollections.observableArrayList(this.taskManager.getTasks()));
@@ -49,6 +55,9 @@ public class TaskViewModel {
     /**
      * Gets the list of tasks.
      * 
+     * @precodnition none
+     * @postcondition none
+     * 
      * @return the list of tasks
      */
     public ListProperty<Task> getTasks() {
@@ -58,10 +67,49 @@ public class TaskViewModel {
     /**
      * Gets the selected task.
      * 
+     * @precodnition none
+     * @postcondition none
+     * 
      * @return the selected task
      */
     public ObjectProperty<Task> getSelectedTask() {
         return this.selectedTask;
+    }
+    
+    /**
+     * Gets the title of the task
+     * 
+     * @precodnition none
+     * @postcondition none
+     * 
+     * @return the title of the task
+     */
+    public StringProperty getTaskTitle() {
+        return this.taskTitle;
+    }
+    
+    /**
+     * Gets the description of the task
+     * 
+     * @precodnition none
+     * @postcondition none
+     * 
+     * @return the description of the task
+     */
+    public StringProperty getTaskDescription() {
+        return this.taskDescription;
+    }
+
+    /**
+     * Adds a task to the task manager.
+     * 
+     * @param title       the title of the task
+     * @param description the description of the task
+     */
+    public void addTask(String title, String description) {
+        Task newTask = new Task(title, description);
+        this.taskManager.addTask(newTask);
+        this.tasks.set(FXCollections.observableArrayList(this.taskManager.getTasks()));
     }
     
     /**
