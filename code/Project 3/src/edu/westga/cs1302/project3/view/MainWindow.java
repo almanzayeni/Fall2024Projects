@@ -2,14 +2,19 @@ package edu.westga.cs1302.project3.view;
 
 import java.io.IOException;
 
+import edu.westga.cs1302.project3.Main;
 import edu.westga.cs1302.project3.model.Task;
 import edu.westga.cs1302.project3.viewmodel.TaskViewModel;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.MenuItem;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /** Codebehind for the Main Window of the application.
@@ -54,6 +59,7 @@ public class MainWindow {
         this.bindProperties();
         this.setUpLoadTasksMenu();
         this.setUpSaveTasksMenu();
+        this.setUpAddTaskButton();
     }
     
     private void bindProperties() {
@@ -94,6 +100,34 @@ public class MainWindow {
             }
         });
     }
+    
+    private void setUpAddTaskButton() {
+    	this.addTask.setOnAction(
+    			(event) -> {
+    				FXMLLoader loader = new FXMLLoader();
+    				loader.setLocation(Main.class.getResource(Main.ADDTASK_WINDOW));
+    				try {
+						loader.load();
+	    				Parent parent = loader.getRoot();
+	    				Scene scene = new Scene(parent);
+	    				Stage setPropertyStage = new Stage();
+	    				setPropertyStage.setTitle(Main.ADDTASK_WINDOW_TITLE);
+	    				setPropertyStage.setScene(scene);
+	    				setPropertyStage.initModality(Modality.APPLICATION_MODAL);
+	    				
+	    				AddTaskWindow propertyCodebehind = (AddTaskWindow) loader.getController();
+	    				propertyCodebehind.bindToVM(this.viewModel);
+	    				
+	    				setPropertyStage.showAndWait();
+					} catch (IOException error) {
+						Alert alert = new Alert(AlertType.ERROR);
+						alert.setContentText("Unable to load properties window.");
+						alert.showAndWait();
+					}
+    			}
+    	);
+    }
+    		
 
     private void showAlert(String title, String message, AlertType alertType) {
         Alert alert = new Alert(alertType);
