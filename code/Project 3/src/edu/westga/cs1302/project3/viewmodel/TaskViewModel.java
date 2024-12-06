@@ -28,6 +28,7 @@ public class TaskViewModel {
 	private ObjectProperty<Task> selectedTask;
 	private StringProperty taskTitle;
 	private StringProperty taskDescription;
+	private StringProperty errorMessage;
 	
 	/**
 	 * Initializes the properties
@@ -38,6 +39,7 @@ public class TaskViewModel {
         this.selectedTask = new SimpleObjectProperty<>();
         this.taskTitle = new SimpleStringProperty();
         this.taskDescription = new SimpleStringProperty();
+        this.errorMessage = new SimpleStringProperty();
 
         this.addDefaultTasks();
         this.tasks.set(FXCollections.observableArrayList(this.taskManager.getTasks()));
@@ -99,24 +101,36 @@ public class TaskViewModel {
     public StringProperty getTaskDescription() {
         return this.taskDescription;
     }
-
+    
+    /**
+     * Gets the error message property.
+     * 
+     * @return the error message property
+     */
+    public StringProperty getErrorMessage() {
+        return this.errorMessage;
+    }
+    
     /**
      * Adds a task to the task manager.
      * 
      * @param title       the title of the task
      * @param description the description of the task
-     * @return is Added when task is added
+     * @return true if the task was successfully added, false otherwise
      */
     public boolean addTask(String title, String description) {
-        if (title == null || title.isEmpty() || description == null || description.isEmpty()) {
-            return false;  
+        if (title == null || title.isEmpty()) {
+            this.errorMessage.set("Title cannot be empty.");
+            return false;
         }
 
         Task newTask = new Task(title, description);
-        boolean isAdded = this.taskManager.addTask(newTask); 
-
+        boolean isAdded = this.taskManager.addTask(newTask);
         if (isAdded) {
             this.tasks.set(FXCollections.observableArrayList(this.taskManager.getTasks()));
+            this.errorMessage.set(null); 
+        } else {
+            this.errorMessage.set("A task with this title already exists.");
         }
         return isAdded;
     }

@@ -57,7 +57,7 @@ public class AddTaskWindow {
                 Stage stage = (Stage) this.addTaskButton.getScene().getWindow();
                 stage.close();
             } else {
-                this.showAlert("Error", "A task with the same title and description already exists.", AlertType.ERROR);
+                this.showAlert("Error", "A task with the same title already exists.", AlertType.ERROR);
             }
         });
     }

@@ -35,41 +35,43 @@ public class TaskManager {
 		 return List.copyOf(this.taskLookup.values());
 	}
 	
-	/**
-	 * Add a task 
-	 * 
-	 * @param task the task to add
-	 * @return true 
-	 */
-	public boolean addTask(Task task) {
-	    if (task == null) {
-	        throw new IllegalArgumentException("Task cannot be null");
-	    }
-	    if (this.taskLookup.containsKey(task.getTitle())
-	    		&& this.taskLookup.get(task.getTitle()).getDescription().equals(task.getDescription())) {
-	        return false;
-	    }
-
-	    this.tasks.add(task);
-	    this.taskLookup.put(task.getTitle(), task);
-	    return true;
-	}
-	
-	/**
-	 * Removes a task
-	 * 
-	 * @param task the task to remove
-	 * @return the list with removed task
-	 */
-	public boolean removeTask(Task task) {
-	    if (task == null) {
-	        throw new IllegalArgumentException("Task cannot be null");
-	    }
-	    boolean removedFromList = this.tasks.remove(task);
-	    this.taskLookup.remove(task.getTitle());
-
-	    return removedFromList;
-	}
+    /**
+     * Adds a task to the manager.
+     * 
+     * @param task the task to add
+     * @return true if the task was added, false if a task with the same title already exists
+     * @throws IllegalArgumentException if task is null
+     */
+    public boolean addTask(Task task) {
+        if (task == null) {
+            throw new IllegalArgumentException("Task cannot be null");
+        }
+        if (this.taskLookup.containsKey(task.getTitle())) {
+            return false;
+        }
+        this.tasks.add(task);
+        this.taskLookup.put(task.getTitle(), task);
+        return true;
+    }
+    
+    /**
+     * Removes a task from the manager.
+     * 
+     * @param task the task to remove
+     * @return true if the task was removed, false if the task does not exist
+     * @throws IllegalArgumentException if task is null
+     */
+    public boolean removeTask(Task task) {
+        if (task == null) {
+            throw new IllegalArgumentException("Task cannot be null");
+        }
+        if (this.taskLookup.containsKey(task.getTitle())) {
+            this.tasks.remove(task);
+            this.taskLookup.remove(task.getTitle());
+            return true;
+        }
+        return false;
+    }
 	
     /**
 	 * Display task
